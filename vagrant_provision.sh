@@ -28,8 +28,10 @@ echo "Maven installed!"
 
 # Install MongoDB.
 echo "Installing MongoDB..."
-apt-key adv --keyserver keyserver.ubuntu.com --recv 7F0CEB10
-echo "deb http://repo.mongodb.org/apt/ubuntu trusty/mongodb-org/3.0 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-3.0.list
-sudo apt-get -y update
+sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 7F0CEB10
+echo 'deb http://downloads-distro.mongodb.org/repo/ubuntu-upstart dist 10gen' | tee /etc/apt/sources.list.d/mongodb.list
+sudo apt-get update
 sudo apt-get install -y mongodb-org
+sed -i '/bind_ip = 127.0.0.1/,/bind_ip\ =\ 127\.0\.0\.1/s/^/#/' /etc/mongod.conf
+sudo service mongod restart
 echo "MongoDB installed!"
