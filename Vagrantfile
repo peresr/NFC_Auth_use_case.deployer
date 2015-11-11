@@ -40,10 +40,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     vb.memory = "1024"
   end
 
-  # Install required software, dependencies
-  # and configurations on the VM using Ansible.
-  config.vm.provision :ansible do |ansible|
-    ansible.playbook = "provision/playbook.yml"
-  end
+  # Install required software, dependencies and configurations on the VM.
+  config.vm.provision "shell", path: "vagrant_provision.sh"
   
 end
