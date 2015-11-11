@@ -19,6 +19,11 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   # Enable/Disable automatic box update checking.
   # config.vm.box_check_update = false
 
+  # Path to the private key used for SSH Authentication.
+  # If the value is 'nil', then the default insecure 
+  # private key that ships with Vagrant will be used.
+  config.ssh.private_key_path = nil
+  
   # Create a forwarded port mapping.
   config.vm.network "forwarded_port", guest: 80, host: 8080
 
