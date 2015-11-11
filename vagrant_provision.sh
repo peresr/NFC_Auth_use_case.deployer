@@ -14,7 +14,7 @@ echo "Installing Apache Tomcat..."
 wget -P /tmp/ http://apache.mirrors.hoobly.com/tomcat/tomcat-8/v8.0.28/bin/apache-tomcat-8.0.28.tar.gz
 sudo tar -zxvf /tmp/apache-tomcat-8.0.28.tar.gz -C /usr/share/
 rm /tmp/apache-tomcat-8.0.28.tar.gz
-export CATALINA_HOME=/usr/share/apacje-tomcat-8.0.28
+export CATALINA_HOME=/usr/share/apache-tomcat-8.0.28
 sudo $CATALINA_HOME/bin/startup.sh
 echo "Apache Tomcat installed!"
 
