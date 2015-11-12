@@ -1,5 +1,5 @@
 ##### NFC_Auth_use_case.deployer
-Creates a development environment for testing and/or deploy the [NFC_Auth_use_case.web_portal project](https://github.com/peresr/NFC_Auth_use_case.web_portal).
+Creates a development environment for testing and/or deploy the [NFC_Auth_use_case.web_portal](https://github.com/peresr/NFC_Auth_use_case.web_portal) project.
 
 This guide assume that [vagrant](https://www.vagrantup.com/) is installed on your machine.
 
