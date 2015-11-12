@@ -31,5 +31,5 @@ sudo apt-get update
 sudo apt-get install -y mongodb-org
 sudo mkdir /data
 sudo mkdir /data/db
-sudo mongod
+sudo mongod --fork --logpath /var/log/mongodb.log
 echo "MongoDB installed!"
