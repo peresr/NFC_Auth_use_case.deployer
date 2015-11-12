@@ -15,7 +15,6 @@ wget -P /tmp/ http://apache.mirrors.hoobly.com/tomcat/tomcat-8/v8.0.28/bin/apach
 sudo tar -zxvf /tmp/apache-tomcat-8.0.28.tar.gz -C /usr/share/
 rm /tmp/apache-tomcat-8.0.28.tar.gz
 export CATALINA_HOME=/usr/share/apache-tomcat-8.0.28
-sudo $CATALINA_HOME/bin/startup.sh
 echo "Apache Tomcat installed!"
 
 # Install Maven.
@@ -31,5 +30,22 @@ sudo apt-get update
 sudo apt-get install -y mongodb-org
 sudo mkdir /data
 sudo mkdir /data/db
-sudo mongod --fork --logpath /var/log/mongodb.log
 echo "MongoDB installed!"
+
+# Clone portal from Git repository.
+echo "Cloning NFC_Auth_use_case.web_portal repository..."
+sudo git clone https://github.com/peresr/NFC_Auth_use_case.web_portal.git /tmp/
+echo "NFC_Auth_use_case.web_portal repository cloned!"
+
+# Packaging portal.
+sudo mvn package
+
+# Starting MongoDB.
+echo "Starting MongoDB deamon..."
+sudo mongod --fork --logpath /var/log/mongodb.log
+echo "MongoDB deamon started!"
+
+# Starting Apache Tomcat.
+echo "Starting Apache Tomcat server..."
+sudo $CATALINA_HOME/bin/startup.sh
+echo "Apache Tomcat server started!"
