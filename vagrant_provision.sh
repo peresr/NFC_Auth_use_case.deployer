@@ -41,7 +41,7 @@ echo "NFC_Auth_use_case.web_portal repository cloned!"
 sudo mvn package
 
 # Starting MongoDB.
-echo "Starting MongoDB deamon..."
+echo "Starting MongoDB as a deamon..."
 sudo mongod --fork --logpath /var/log/mongodb.log
 echo "MongoDB deamon started!"
 
