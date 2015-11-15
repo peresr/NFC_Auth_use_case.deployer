@@ -9,13 +9,13 @@ sudo apt-get install -y oracle-java8-installer
 sudo apt-get install oracle-java8-set-default
 echo "Java 8 installed!"
 
-# Install Apache Tomcat.
-echo "Installing Apache Tomcat..."
+# Install Tomcat.
+echo "Installing Tomcat..."
 wget -P /tmp/ http://apache.mirrors.hoobly.com/tomcat/tomcat-8/v8.0.28/bin/apache-tomcat-8.0.28.tar.gz
 sudo tar -zxvf /tmp/apache-tomcat-8.0.28.tar.gz -C /usr/share/
 rm /tmp/apache-tomcat-8.0.28.tar.gz
 export CATALINA_HOME=/usr/share/apache-tomcat-8.0.28
-echo "Apache Tomcat installed!"
+echo "Tomcat installed!"
 
 # Install Maven.
 echo "Installing Maven..."
@@ -34,10 +34,11 @@ echo "MongoDB installed!"
 
 # Clone portal from Git repository.
 echo "Cloning NFC_Auth_use_case.web_portal repository..."
-sudo git clone https://github.com/peresr/NFC_Auth_use_case.web_portal.git /tmp/
+sudo git clone https://github.com/peresr/NFC_Auth_use_case.web_portal.git /tmp/web_portal
 echo "NFC_Auth_use_case.web_portal repository cloned!"
 
 # Packaging portal.
+cd /tmp/web_portal
 sudo mvn package
 
 # Starting MongoDB.
@@ -45,7 +46,6 @@ echo "Starting MongoDB as a deamon..."
 sudo mongod --fork --dbpath /var/lib/mongodb/ --smallfiles --logpath /var/log/mongodb.log
 echo "MongoDB deamon started!"
 
-# Starting Apache Tomcat.
-echo "Starting Apache Tomcat server..."
+# Starting Tomcat.
+echo "Starting Tomcat..."
 sudo $CATALINA_HOME/bin/startup.sh
-echo "Apache Tomcat server started!"
