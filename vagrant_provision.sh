@@ -42,7 +42,7 @@ sudo mvn package
 
 # Starting MongoDB.
 echo "Starting MongoDB as a deamon..."
-sudo mongod --fork --logpath /var/log/mongodb.log
+sudo mongod --fork --dbpath /var/lib/mongodb/ --smallfiles --logpath /var/log/mongodb.log
 echo "MongoDB deamon started!"
 
 # Starting Apache Tomcat.
